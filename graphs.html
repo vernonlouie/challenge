@@ -53,14 +53,14 @@
             Graph.prototype.containsNode = function(node) {
                 for (var i=0; i < this.node_list.length; ++i) {
                     if (this.node_list[i].name === node) {
-                        return true;
+                        return i;
                     }
                 }
                 return false;
             };
 
             Graph.prototype.addNode = function(node) {
-                var n = new NODE(node);
+                var n = new Node(node);
                 this.node_list.push(n);
             };
 
@@ -79,12 +79,15 @@
                     if (this.node_list[i].name === start) {
                         for (var j=0; j < this.node_list[i].edge_list.length; j++) {
                             if (this.node_list[i].edge_list[j] === end) {
+                                console.log("Graph contains: " + start + " and " + end);
                                 return true;
                             }
                         }
+                        console.log("Graph doesn't contain: " + start + " and " + end);
                         return false;
                     }
                 }
+                console.log("Graph doesn't contain: " + start + " and " + end);
                 return false;
             };
 
@@ -98,14 +101,27 @@
             };
 
             Graph.prototype.removeEdge = function(start, end) {
-
+                for (var i=0; i < this.node_list.length; i++) {
+                    if (this.node_list[i].name === start) {
+                        for (var j=0; j < this.node_list[i].edge_list.length; j++) {
+                            if (this.node_list[i].edge_list[j] === end) {
+                                this.node_list[i].edge_list.splice(j,1);
+                            }
+                        }
+                    }
+                }
             };
-
 
             Graph.prototype.printNodes = function() {
-                ...
+                // console.log(this.node_list);
+                for (var i=0; i < this.node_list.length; ++i) {
+                    console.log(this.node_list[i]);
+                    console.log(this.node_list[i].name);
+                    for (var j=0; j < this.node_list[i].edge_list.length; j++) {
+                        console.log(this.node_list[i].edge_list[j]);
+                    }
+                }
             };
-
 
             // -------------- TEST -------------
 
@@ -135,6 +151,7 @@
             graph.printNodes();
         </script>
     </head>
+
     <body>
 
     </body>
