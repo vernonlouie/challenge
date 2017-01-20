@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var array = [4, 8, 12, 4, 2, 9, 1, 0, 12, 17, 8, 10];
+
+        function calc_avg (arr) {
+            var sum = 0, count = 0, avg;
+
+            for (var i=0; i < arr.length; ++i) {
+                sum += arr[i];
+                count++;
+            }
+
+            avg =  sum/count;
+            return avg;
+        }
+
+        var answer = calc_avg(array);
+        console.log("answer: " + answer);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

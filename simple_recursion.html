@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> recursion timer </title>
+        <script>
+            function call_timer(val) {
+                console.log("val: " + val);
+                if (val === 0) {
+                    console.log("the end");
+                    return;
+                }
+
+                setTimeout(call_timer, 1000, val-1);
+            }
+            call_timer(5);
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

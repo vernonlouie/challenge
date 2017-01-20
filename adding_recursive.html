@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script>
+            function add (arr) {
+                var length = arr.length;
+
+                console.log("array: " + arr);
+
+                if (length === 1) {
+                   return arr[0];
+                } else {
+                    return arr.pop() + add(arr);
+                }
+                debugger
+            }
+
+            var array = [2, 3, 7, 9, 12, 15, 16, 99];
+            var answer = add (array);
+            console.log("answer: " + answer);
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>letter repeat</title>
+    <script>
+        var answer = [];
+        var word = "mississippi";
+
+        function findRepeats(text) {
+            var target_letter, letter_for_now;
+            var repeated_letters_array = [];
+
+            var array = text.split("");
+
+            for (var i=0; i < array.length; ++i) {
+                target_letter = array[i];
+
+                for (var a=0; a < repeated_letters_array.length; a++) {
+                    if (target_letter === repeated_letters_array[a]) {
+                        target_letter = array[];
+                    }
+                }
+
+                for (var j=i+1; j < array.length; j++) {
+                    letter_for_now = array[j];
+
+                    if (target_letter === letter_for_now) {
+                        repeated_letters_array.push(target_letter);
+                        break;
+                    }
+                }
+            }
+
+            return repeated_letters_array;
+        }
+
+        var answer = findRepeats(word);
+        console.log("answer: " + answer);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
