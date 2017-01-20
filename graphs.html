@@ -89,11 +89,16 @@
             };
 
             Graph.prototype.addEdge = function(start, end) {
-
+                for (var i=0; i < this.node_list.length; ++i) {
+                    if (this.node_list[i].name === start) {
+                        this.node_list[i].edge_list.push(end);
+                        break;
+                    }
+                }
             };
 
             Graph.prototype.removeEdge = function(start, end) {
-                ...
+
             };
 
 
