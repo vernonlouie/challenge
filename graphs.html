@@ -27,15 +27,18 @@
             //      [ ] with othe other graph you wrote
             //
 
+            // Big-O = constant
             function Graph() {
                 this.node_list = [];
             }
 
+            // Big-O = constant
             function Node(name) {
                 this.edge_list = [];
                 this.name = name;
             }
 
+            // Big-O = constant
             Array.prototype.contains = function(name) {
                 var i = this.length;
                 while (i--) {
@@ -46,34 +49,44 @@
                 return false;
             };
 
+            // Big-O = constant
             Node.prototype.addEdge = function(end) {
                 this.edge_list.push(end);
             };
 
+            // Big-O = linear
             Graph.prototype.containsNode = function(node) {
                 for (var i=0; i < this.node_list.length; ++i) {
                     if (this.node_list[i].name === node) {
                         return i;
                     }
                 }
-                return false;
+                return -1;
             };
 
+            // Big-O = constant
             Graph.prototype.addNode = function(node) {
                 var n = new Node(node);
                 this.node_list.push(n);
             };
 
+            // Big-O = linear
             Graph.prototype.removeNode = function(node) {
+                var index = this.containsNode(node);
 
-                for (var i=0; i < this.node_list.length; i++) {
-                    if (this.node_list[i].name === node) {
-                        this.node_list.splice(i,1);
-                        break;
-                    }
+                if (index >= 0) {
+                    this.node_list.splice(index,1);
                 }
+
+//                for (var i=0; i < this.node_list.length; i++) {
+//                    if (this.node_list[i].name === node) {
+//                        this.node_list.splice(i,1);
+//                        break;
+//                    }
+//                }
             };
 
+            // Big-O = quadratic
             Graph.prototype.containsEdge = function(start, end) {
                 for (var i=0; i < this.node_list.length; i++) {
                     if (this.node_list[i].name === start) {
@@ -91,6 +104,7 @@
                 return false;
             };
 
+            // Big-O = linear
             Graph.prototype.addEdge = function(start, end) {
                 for (var i=0; i < this.node_list.length; ++i) {
                     if (this.node_list[i].name === start) {
@@ -100,6 +114,7 @@
                 }
             };
 
+            // Big-O = quadratic
             Graph.prototype.removeEdge = function(start, end) {
                 for (var i=0; i < this.node_list.length; i++) {
                     if (this.node_list[i].name === start) {
@@ -112,6 +127,7 @@
                 }
             };
 
+            // Big-O = quadratic
             Graph.prototype.printNodes = function() {
                 // console.log(this.node_list);
                 for (var i=0; i < this.node_list.length; ++i) {
